@@ -1,0 +1,42 @@
+// Generate width for container 
+//
+@mixin width-container() {
+	@include breakpoint(large) {
+		width: calc-container(map-fetch($grid, normal width), map-get($grid, col-qty), map-fetch($grid, normal gutter));		
+	}
+
+	@include breakpoint(xxx-large) {
+		width: calc-container(map-fetch($grid, large width), map-get($grid, col-qty), map-fetch($grid, large gutter));
+	}
+
+	@include breakpoint(small-to-medium) {
+		width: 100%;
+	} 		
+}
+
+// Generate container
+// use calc-container function.
+//
+// @param $type ("normal" or "inner")
+//
+// @include container();
+// 
+
+@mixin container($type: "normal") {
+	@if $type == "inner" {
+		width: 100%;
+	}	@else if $type == "normal" {
+		@include width-container();	  
+	} @else {
+		@error 'Type value (#{$type}) is unknown';		
+	}
+
+	margin-left: auto;
+	margin-right: auto;
+
+	&:after {
+	    clear: both;  
+	    content: '';
+	    display: block;
+	}
+}

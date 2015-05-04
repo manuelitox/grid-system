@@ -1,0 +1,18 @@
+.example-grid {
+  margin-left: auto;
+  margin-right: auto; }
+  @media (min-width: 1024px) {
+    .example-grid {
+      width: 960px; } }
+  @media (min-width: 1360px) {
+    .example-grid {
+      width: 1200px; } }
+  @media (min-width: 240px) and (max-width: 1023px) {
+    .example-grid {
+      width: 100%; } }
+  .example-grid:after {
+    clear: both;
+    content: '';
+    display: block; }
+
+/*# sourceMappingURL=base.css.map */

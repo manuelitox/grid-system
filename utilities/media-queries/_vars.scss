@@ -1,0 +1,11 @@
+//
+// Variables:
+
+$breakpoints: (
+  xxx-large: "(min-width: 1360px)",
+  large: "(min-width: 1024px)",
+  small-to-medium: "(min-width: 240px) and (max-width: 1023px)",
+  medium-to-large: "(min-width: 600px)",
+  medium: "(min-width: 600px) and (max-width: 1023px)",
+  small: "(min-width: 240px) and (max-width: 599px)" 
+);

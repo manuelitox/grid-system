@@ -1,0 +1,21 @@
+// Calculate column width percentage
+//
+// @param $type (normal | big)
+//
+// calc-col-fixed($col-qty);
+//
+
+@function calc-col-percentage($type) {
+	$options: (
+		full       : 100%,
+		half       : 50%,
+		two-thirds : 66.66%,
+		one-third  : 33.33%
+	);
+
+	@if not map-has-key($options, $type) {
+		@error 'Type value (#{$type}) is unknown';
+	}
+
+	@return map-get($options, $type);
+}

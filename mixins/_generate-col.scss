@@ -1,0 +1,39 @@
+// generate columns
+// use functions calc-col-fixed and calc-col-percentage.
+//
+// @param $col-qty
+// @param $option-medium (full | half | two-thirds | one-third)
+// @param $option-small (full | half | two-thirds | one-third)
+// 
+// @include col(12, "half", "full");
+// 
+
+@mixin col($col-qty: 12, $option-medium: "full", $option-small: $option-medium) {
+	@include breakpoint(large) {
+		margin-left: map-fetch($grid, normal gutter) / 2;
+		margin-right: map-fetch($grid, normal gutter) / 2;
+		width: calc-col-fixed($col-qty, "normal");
+	}
+
+	@include breakpoint(xxx-large) {
+		margin-left: map-fetch($grid, large gutter) / 2;
+		margin-right: map-fetch($grid, large gutter) / 2;		
+		width: calc-col-fixed($col-qty, "big");
+	}
+
+	@include breakpoint(small-to-medium) {
+		box-sizing: border-box;
+		padding-left: 10px;
+		padding-right: 10px;		
+	}
+
+	@include breakpoint(medium) {
+		width: calc-col-percentage($option-medium);
+	}	
+
+	@include breakpoint(small) {
+		width: calc-col-percentage($option-small);
+	}
+
+	float: left;	
+}
